@@ -1,5 +1,19 @@
 Swt::Application.routes.draw do
-  devise_for :users
+	#root :to => 'home#index'	
+  	#devise_for :users
+	
+	
+	
+	authenticated :user do
+		root to: "home#index", as: :authenticated_root
+	end
+	unauthenticated do
+		root to: "home#index", as: :unauthenticated_root
+	end	
+	devise_for :users
+	
+	
+	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

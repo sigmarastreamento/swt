@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Swt</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<meta name="viewport", content="width=device-width, initial-scale=1.0">
+	<title><%= content_for?(:title) ? yield(:title) : "App_name" %></title>
+	<meta name="description" content="<%= content_for?(:description)? yield(:description) : "App_Name" %>">
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+	<%= yield(:head) %>
 </head>
 <body>
-<% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
-<% end %>
-<%= yield %>
-
+	<header class="navbar navbar-fixed-top">
+		<nav class="navbar-inner">
+			<div class="conteiner">
+				<%= render 'layouts/navigation' %>
+			</div>
+		</nav>
+	</header>
+	<div id="main" role="main">
+		<div class="conteiner">
+			<div class="content">
+				<div class="row">
+					<div class="span12">
+						<%= render 'layouts/messages' %>
+						<%= yield %>
+					</div>
+				</div>
+				<footer>
+					
+				</footer>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

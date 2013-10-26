@@ -1,0 +1,8 @@
+<h3>home</h3>
+<% @users.each do |user| %>
+	<li>
+		User : <%= user.email %>
+	</li>
+
+	User : <%= user.current_sign_in_at %>
+<% end %>

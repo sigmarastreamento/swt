@@ -35,6 +35,10 @@ end
 # gem for controller and auth user
 gem 'devise'
 
+gem "cancan", "~> 1.6.10"
+
+gem "rolify", "~> 3.2.0"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
