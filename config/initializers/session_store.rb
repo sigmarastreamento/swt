@@ -1,3 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-Swt::Application.config.session_store :cookie_store, key: '_swt_session'
+Swt::Application.config.session_store :cookie_store, key: 'ertbs45tnsb3aw5bsxdrt54'
+
+Swt::Application.config.secret_token = '762a2f23950e306261908d4e5519ffe71ce626b119e9fc03a012ba86f46d82ef32d72f283633bacc2f59cf94ce5968552fe97d157e7f00560c1217d4592dda09'
+Swt::Application.config.secret_key_base = 'xx762a2f23950e306261908d4e5519ffe71ce626b119e9fc03a012ba86f46d82ef32d72f283633bacc2f59cf94ce5968552fe97d157e7f00560c1217d4592dda09'
