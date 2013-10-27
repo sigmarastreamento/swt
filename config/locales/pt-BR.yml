@@ -19,10 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  label_login: "Login"
-  label_logout: "Logout"
-  label_edit_account: "Edit"
-  label_admin_area: "Administrator"
-  label_sing_up: "Sing UP"
+pt-BR:
+  hello: "Hello World."
+  label_login: "Logar-se no Sistema"
+  label_logout: "Sair do Sistema"
+  label_edit_account: "Editar Dados"
+  label_admin_area: "Administrador"
+  label_sing_up: "Cadastrar-se"
