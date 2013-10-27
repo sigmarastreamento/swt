@@ -1,0 +1,83 @@
+Sigmarastreamento - SWT
+
+Relation Data Base Traccar Server for new interface web
+
++-----------------------+
+| Tables_in_traccar_db2 |
++-----------------------+
+| application_settings  |
+| devices               |
+| positions             |
+| user_settings         |
+| users                 |
+| users_devices         |
++-----------------------+
+
+
+users;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| id              | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| admin           | tinyint(1)   | YES  |     | NULL    |                |
+| login           | varchar(255) | YES  |     | NULL    |                |
+| password        | varchar(255) | YES  |     | NULL    |                |
+| userSettings_id | bigint(20)   | YES  | MUL | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+
+
+user_settings;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| speedUnit | varchar(255) | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
+
+devices;
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| id                | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| name              | varchar(255) | YES  |     | NULL    |                |
+| uniqueId          | varchar(255) | YES  |     | NULL    |                |
+| latestPosition_id | bigint(20)   | YES  | MUL | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+
+
+application_settings;
++---------------------+------------+------+-----+---------+----------------+
+| Field               | Type       | Null | Key | Default | Extra          |
++---------------------+------------+------+-----+---------+----------------+
+| id                  | bigint(20) | NO   | PRI | NULL    | auto_increment |
+| registrationEnabled | tinyint(1) | NO   |     | NULL    |                |
++---------------------+------------+------+-----+---------+----------------+
+
+
+positions;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| address   | varchar(255) | YES  |     | NULL    |                |
+| altitude  | double       | YES  |     | NULL    |                |
+| course    | double       | YES  |     | NULL    |                |
+| latitude  | double       | YES  |     | NULL    |                |
+| longitude | double       | YES  |     | NULL    |                |
+| other     | varchar(255) | YES  |     | NULL    |                |
+| power     | double       | YES  |     | NULL    |                |
+| speed     | double       | YES  |     | NULL    |                |
+| time      | datetime     | YES  |     | NULL    |                |
+| valid     | tinyint(1)   | YES  |     | NULL    |                |
+| device_id | bigint(20)   | YES  | MUL | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
+
+users_devices;
++------------+------------+------+-----+---------+-------+
+| Field      | Type       | Null | Key | Default | Extra |
++------------+------------+------+-----+---------+-------+
+| users_id   | bigint(20) | NO   | MUL | NULL    |       |
+| devices_id | bigint(20) | NO   | MUL | NULL    |       |
++------------+------------+------+-----+---------+-------+
