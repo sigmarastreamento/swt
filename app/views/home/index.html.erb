@@ -1,37 +1,71 @@
-<h3>home</h3>
-<% @users.each do |user| %>
-	<li>
-		User : <%= user.email %>
-	</li>
-
-	User : <%= user.current_sign_in_at %>
-<% end %>
-
-
-
-<ul class="nav">
-	<% if user_signed_in? %>
-		<li>
-			<%= link_to(t(:label_logout), destroy_user_session_path, :method=> 'delete') %>
-		</li>
-	<% else %>
-		<li>
-			<%= link_to(t(:label_login), new_user_session_path) %>
-		</li>
-	<% end %>
+<div id="map" class="smallmap">
+</div>
+<script type="text/javascript">
 	
-	<% if user_signed_in? %>
-		<li>
-			<%= link_to(t(:label_edit_account), edit_user_registration_path) %>
-		</li>
-		<% if current_user.has_role? :admin %>
-			<li>
-				<%= link_to(t(:label_admin_area), users_path) %>
-			</li>
-		<% end %>
-	<% else %>
-		<li>
-			<%= link_to(t(:label_sing_up), new_user_registration_path) %>
-		</li>
-	<% end %>
-</ul>
+        var map; //complex object of type OpenLayers.Map
+ 
+        //Initialise the 'map' object
+        function init() {
+			map = new OpenLayers.Map('map', {
+                    controls: [
+                        new OpenLayers.Control.Navigation(),
+                        new OpenLayers.Control.PanZoomBar(),
+                        new OpenLayers.Control.LayerSwitcher({'ascending':false}),
+                        new OpenLayers.Control.Permalink(),
+                        new OpenLayers.Control.ScaleLine(),
+                        new OpenLayers.Control.Permalink('permalink'),
+                        new OpenLayers.Control.MousePosition(),
+                        new OpenLayers.Control.OverviewMap(),
+                        new OpenLayers.Control.KeyboardDefaults()
+                    ],
+                    numZoomLevels: 20
+                    
+                });
+
+                var ol_wms = new OpenLayers.Layer.WMS(
+                    "OpenLayers WMS",
+                    "http://vmap0.tiles.osgeo.org/wms/vmap0",
+                    {layers: 'basic'} 
+                );
+
+                var gwc = new OpenLayers.Layer.WMS(
+                    "Global Imagery",
+                    "http://maps.opengeo.org/geowebcache/service/wms",
+                    {layers: "bluemarble"},
+                    {tileOrigin: new OpenLayers.LonLat(-180, -90)}
+                );
+			
+			var wms = new OpenLayers.Layer.WMS("NASA Global Mosaic",
+                                   "http://wms.jpl.nasa.gov/wms.cgi",
+                                   {
+                                       layers: "modis,global_mosaic",
+                                       transparent: true
+                                   }, {
+                                       opacity: 0.5,
+                                       singleTile: true
+                                   });
+			
+			
+                var dm_wms = new OpenLayers.Layer.WMS(
+                    "DM Solutions Demo",
+                    "http://www2.dmsolutions.ca/cgi-bin/mswms_gmap",
+                    {layers: "bathymetry,land_fn,park,drain_fn,drainage," +
+                             "prov_bound,fedlimit,rail,road,popplace",
+                     transparent: "true", format: "image/png"},
+                    {visibility: false}
+                );
+
+                map.addLayers([ol_wms, gwc, dm_wms]);
+			
+			map.zoomToExtent(
+                new OpenLayers.Bounds(
+                    68.774414, 11.381836, 123.662109, 34.628906
+                ).transform(map.displayProjection, map.projection)
+            );
+
+                if (!map.getCenter()) {
+                    map.zoomToMaxExtent();
+                }
+        }
+	init();
+</script>

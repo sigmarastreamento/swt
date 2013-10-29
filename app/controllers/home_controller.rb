@@ -4,6 +4,6 @@ class HomeController < ApplicationController
 
 	def index
 		#authorize! :index, @user, :message => 'Nao autorizado somente administradores'
-		@users = User.all
+		#@users = User.all
 	end
 end
