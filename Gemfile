@@ -39,6 +39,8 @@ gem "cancan", "~> 1.6.10"
 
 gem "rolify", "~> 3.2.0"
 
+gem "mysql2", "~> 0.3.13"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
