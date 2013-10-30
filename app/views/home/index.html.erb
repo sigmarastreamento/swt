@@ -69,3 +69,51 @@
         }
 	init();
 </script>
+
+
+<% @devices.each do |device| %>
+        <li>
+                Device : <%= device.id %>
+				device : <%= device.name %>
+        </li>
+<% end %>
+
+
+
+
+<% @usersdevices.each do |usersdevice| %>
+        <li>
+                usersdevice : <%= usersdevice.users_id %>
+				usersdevice : <%= usersdevice.devices_id %>
+        </li>
+<% end %>
+
+
+<% @users.each do |user| %>
+        <li>
+                user : <%= user.email %>
+        </li>
+<% end %>
+
+<% @applicationsettings.each do |applicationsetting| %>
+	<li>
+		applicationSettings : <%= applicationsetting.id %>
+	</li>
+<% end %>
+
+
+<% @usersettings.each do |usersetting| %>
+	<li>
+		UserSetting : <%= usersetting.id %>
+		UserSetting : <%= usersetting.speedUnit %>
+	</li>
+<% end %>
+
+
+<% @positions.each do |position| %>
+	<li>
+		Position : <%= position.id %>
+		
+	</li>
+<% end %>
+
