@@ -1,9 +1,18 @@
 Swt::Application.routes.draw do
 	
-	root :to => 'home#index'	
-  	devise_for :users
+  #get "application_setting/index"
+  #get "application_setting/show"
+  #get "device/index"
+  #get "device/show"
+  #get 'position#index'
+  #get "position/show"
+
+	devise_for :users
 	resources :users
 	resources :devices
+	resources :positions
+	
+	root :to => 'home#index'	
 	
 	
 	
