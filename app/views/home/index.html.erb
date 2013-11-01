@@ -1,119 +1,23 @@
-<div id="map" class="smallmap">
+<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+			  <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+<div id="map" >
 </div>
-<script type="text/javascript">
-	
-        var map; //complex object of type OpenLayers.Map
- 
-        //Initialise the 'map' object
-        function init() {
-			map = new OpenLayers.Map('map', {
-                    controls: [
-                        new OpenLayers.Control.Navigation(),
-                        new OpenLayers.Control.PanZoomBar(),
-                        new OpenLayers.Control.LayerSwitcher({'ascending':false}),
-                        new OpenLayers.Control.Permalink(),
-                        new OpenLayers.Control.ScaleLine(),
-                        new OpenLayers.Control.Permalink('permalink'),
-                        new OpenLayers.Control.MousePosition(),
-                        new OpenLayers.Control.OverviewMap(),
-                        new OpenLayers.Control.KeyboardDefaults()
-                    ],
-                    numZoomLevels: 20
-                    
-                });
-
-                var ol_wms = new OpenLayers.Layer.WMS(
-                    "OpenLayers WMS",
-                    "http://vmap0.tiles.osgeo.org/wms/vmap0",
-                    {layers: 'basic'} 
-                );
-
-                var gwc = new OpenLayers.Layer.WMS(
-                    "Global Imagery",
-                    "http://maps.opengeo.org/geowebcache/service/wms",
-                    {layers: "bluemarble"},
-                    {tileOrigin: new OpenLayers.LonLat(-180, -90)}
-                );
-			
-			var wms = new OpenLayers.Layer.WMS("NASA Global Mosaic",
-                                   "http://wms.jpl.nasa.gov/wms.cgi",
-                                   {
-                                       layers: "modis,global_mosaic",
-                                       transparent: true
-                                   }, {
-                                       opacity: 0.5,
-                                       singleTile: true
-                                   });
-			
-			
-                var dm_wms = new OpenLayers.Layer.WMS(
-                    "DM Solutions Demo",
-                    "http://www2.dmsolutions.ca/cgi-bin/mswms_gmap",
-                    {layers: "bathymetry,land_fn,park,drain_fn,drainage," +
-                             "prov_bound,fedlimit,rail,road,popplace",
-                     transparent: "true", format: "image/png"},
-                    {visibility: false}
-                );
-
-                map.addLayers([ol_wms, gwc, dm_wms]);
-			
-			map.zoomToExtent(
-                new OpenLayers.Bounds(
-                    68.774414, 11.381836, 123.662109, 34.628906
-                ).transform(map.displayProjection, map.projection)
-            );
-
-                if (!map.getCenter()) {
-                    map.zoomToMaxExtent();
-                }
-        }
-	init();
-</script>
-
-
-<% @devices.each do |device| %>
-        <li>
-                Device : <%= device.id %>
-				device : <%= device.name %>
-        </li>
-<% end %>
-
-
-
-
-<% @usersdevices.each do |usersdevice| %>
-        <li>
-                usersdevice : <%= usersdevice.users_id %>
-				usersdevice : <%= usersdevice.devices_id %>
-        </li>
-<% end %>
-
-
-<% @users.each do |user| %>
-        <li>
-                user : <%= user.email %>
-        </li>
-<% end %>
-
-<% @applicationsettings.each do |applicationsetting| %>
-	<li>
-		applicationSettings : <%= applicationsetting.id %>
-	</li>
-<% end %>
-
-
-<% @usersettings.each do |usersetting| %>
-	<li>
-		UserSetting : <%= usersetting.id %>
-		UserSetting : <%= usersetting.speedUnit %>
-	</li>
-<% end %>
-
-
-<% @positions.each do |position| %>
-	<li>
-		Position : <%= position.id %>
-		
-	</li>
-<% end %>
+<div ng-controller="TextController">
+</div>
 
