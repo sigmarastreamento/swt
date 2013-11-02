@@ -1,16 +1,17 @@
 Swt::Application.routes.draw do
 	
-  #get "application_setting/index"
-  #get "application_setting/show"
-  #get "device/index"
-  #get "device/show"
-  #get 'position#index'
-  #get "position/show"
+  	resources :users_devices
+
+  	resources :user_settings
+
+  	resources :positions
+
+  	resources :devices
+
+	resources :application_settings
 
 	devise_for :users
 	resources :users
-	resources :devices
-	resources :positions
 	
 	root :to => 'home#index'	
 	

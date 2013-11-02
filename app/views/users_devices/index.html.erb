@@ -1,0 +1,25 @@
+<h1>Listing users_devices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users_devices.each do |users_device| %>
+      <tr>
+        <td><%= link_to 'Show', users_device %></td>
+        <td><%= link_to 'Edit', edit_users_device_path(users_device) %></td>
+        <td><%= link_to 'Destroy', users_device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Users device', new_users_device_path %>

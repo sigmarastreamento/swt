@@ -9,5 +9,4 @@ class Position < ActiveRecord::Base
     	return true if method_name == 'valid?'
     	super
 	end
-
 end
