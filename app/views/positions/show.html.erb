@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<%=h @position.speed %><br>
+<%=h @position.latitude %><br>
+<%=h @position.longitude %>
 <%= link_to 'Edit', edit_position_path(@position) %> |
 <%= link_to 'Back', positions_path %>

@@ -3,15 +3,14 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>registrationEnabled</th>
     </tr>
   </thead>
 
   <tbody>
     <% @application_settings.each do |application_setting| %>
       <tr>
+		<td><%= application_setting.registrationEnabled %></td>  
         <td><%= link_to 'Show', application_setting %></td>
         <td><%= link_to 'Edit', edit_application_setting_path(application_setting) %></td>
         <td><%= link_to 'Destroy', application_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>

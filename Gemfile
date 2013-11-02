@@ -41,6 +41,8 @@ gem "rolify", "~> 3.2.0"
 
 gem "mysql2", "~> 0.3.13"
 
+gem "simple_form", "~> 3.0.0"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -51,4 +53,4 @@ gem "mysql2", "~> 0.3.13"
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

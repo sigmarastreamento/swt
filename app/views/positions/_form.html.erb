@@ -1,4 +1,4 @@
-<%= form_for(@position) do |f| %>
+<%= simple_form_for @position, html: {class: 'form-horizontal' } do |f| %>
   <% if @position.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@position.errors.count, "error") %> prohibited this position from being saved:</h2>
@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="actions">
     <%= f.submit %>
   </div>

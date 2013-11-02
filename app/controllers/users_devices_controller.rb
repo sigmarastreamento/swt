@@ -1,5 +1,6 @@
 class UsersDevicesController < ApplicationController
   before_action :set_users_device, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /users_devices
   # GET /users_devices.json

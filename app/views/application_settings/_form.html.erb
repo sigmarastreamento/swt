@@ -1,4 +1,4 @@
-<%= form_for(@application_setting) do |f| %>
+<%= simple_form_for @application_setting, html: {class: 'form-horizontal' } do |f| %>
   <% if @application_setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@application_setting.errors.count, "error") %> prohibited this application_setting from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+	<%= f.input :registrationEnabled %>
   <div class="actions">
     <%= f.submit %>
   </div>

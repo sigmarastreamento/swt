@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /devices
   # GET /devices.json
@@ -14,6 +15,11 @@ class DevicesController < ApplicationController
   # GET /devices/1
   # GET /devices/1.json
   def show
+	  @device = Device.find(params[:id])
+	  respond_to do |format|
+		  format.html # show.html.erb
+		  format.json { render json: @device.to_json(root: false) }
+	  end
   end
 
   # GET /devices/new
@@ -44,15 +50,15 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1
   # PATCH/PUT /devices/1.json
   def update
-    respond_to do |format|
-      if @device.update(device_params)
-        format.html { redirect_to @device, notice: 'Device was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @device.errors, status: :unprocessable_entity }
-      end
-    end
+	respond_to do |format|
+	  if @device.update(device_params)
+		format.html { redirect_to @device, notice: 'Device was successfully updated.' }
+		format.json { head :no_content }
+	  else
+		format.html { render action: 'edit' }
+		format.json { render json: @device.errors, status: :unprocessable_entity }
+	  end
+	end
   end
 
   # DELETE /devices/1
@@ -73,6 +79,7 @@ class DevicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def device_params
-      params[:device]
+      #params[:device]
+	  params.require(:device).permit(:name, :uniqueId, :latestPosition_id, :id)
     end
 end
