@@ -39,9 +39,15 @@ function MapController($scope, $http) {
 		
 	$scope.map.addLayer($scope.carroLayer);
 	$scope.map.zoomToMaxExtent();
-	$scope.locations = new OpenLayers.Geometry.Point(-3.76151, -38.54154666666667).transform('EPSG:4326', 'EPSG:3857');
+	$scope.locations = new OpenLayers.Geometry.Point(-3.76151, -38.54154666666667).transform('EPSG:4326');
 	$scope.carroLayer.addFeatures([
 		new OpenLayers.Feature.Vector($scope.locations, {tooltip: 'OpenLayers'})
 	]);
+	
+	
+	
+	$scope.clickSimao = function(){
+		alert("teste ok!");
+	}
 	
 }
