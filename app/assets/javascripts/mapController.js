@@ -47,7 +47,7 @@ function MapController($scope, $http) {
 	
 	
 	$scope.clickSimao = function(){
-		alert("teste ok!");
+		return new OpenLayers.Geometry.Point(-3.76151, -38.54154666666667).transform('EPSG:4326');
 	}
 	
 }

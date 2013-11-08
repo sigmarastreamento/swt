@@ -5,7 +5,7 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+    @devices = Device.where("latestPosition_id = '#{latestPosition_id}'")
 	  respond_to do |format|
 		  format.html # show.html.erb
 		  format.json { render json: @devices.to_json(root: false) }
