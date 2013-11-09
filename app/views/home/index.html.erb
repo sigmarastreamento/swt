@@ -19,7 +19,7 @@
                 	<li><%= link_to 'New Application setting', new_application_setting_path %></li>
                 	<li><%= link_to 'New Device', new_device_path %></li>					
                 	<li><%= link_to 'New User setting', new_user_setting_path %></li>
-					<li><%= link_to 'New Users device', new_users_device_path %></li>
+					<li><%= link_to_modal 'New Users device', new_users_device_path, :remote => true %></li>
               	</ul>
               </li>
 			<li><%= link_to "Log out", destroy_session_path(:user), :method => :delete %></li>
