@@ -1,17 +1,30 @@
-<%= simple_form_for @application_setting, html: {class: 'form-horizontal' } do |f| %>
-  <% if @application_setting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@application_setting.errors.count, "error") %> prohibited this application_setting from being saved:</h2>
-
-      <ul>
-      <% @application_setting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-	<%= f.input :registrationEnabled %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<!-- Modal -->
+<div class="modal fade" id="applicationSettingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Global Settings</h4>
+			</div>
+			<div class="modal-body">
+				<%= simple_form_for @application_setting, html: {class: 'form-horizontal' } do |f| %>
+				  <% if @application_setting.errors.any? %>
+					<div id="error_explanation">
+					  <h2><%= pluralize(@application_setting.errors.count, "error") %> prohibited this application_setting from being saved:</h2>
+				
+					  <ul>
+					  <% @application_setting.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					  <% end %>
+					  </ul>
+					</div>
+				  <% end %>
+					<%= f.input :registrationEnabled %>
+			</div>
+			<div class="modal-footer">
+				<%= f.submit "submit", :class => 'btn btn-primary' %>
+      		</div>
+			<% end %>
+    	</div><!-- /.modal-content -->
+  	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

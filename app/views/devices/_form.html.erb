@@ -1,19 +1,32 @@
-<%= simple_form_for @device, html: {class: 'form-horizontal' } do |f| %>
-  <% if @device.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
-
-      <ul>
-      <% @device.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-	<%= f.input :name %>
-	<%= f.input :uniqueId %>
-	<%= f.input :latestPosition_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<!-- Modal -->
+<div class="modal fade" id="deviceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Cadastro de Device</h4>
+			</div>
+			<div class="modal-body">
+				<%= simple_form_for @device, html: {class: 'form-horizontal' } do |f| %>
+				  <% if @device.errors.any? %>
+					<div id="error_explanation">
+					  <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+				
+					  <ul>
+					  <% @device.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					  <% end %>
+					  </ul>
+					</div>
+				  <% end %>
+					<%= f.input :name %>
+					<%= f.input :uniqueId %>
+					<%= f.input :latestPosition_id %>
+			</div>
+			<div class="modal-footer">
+				<%= f.submit "submit", :class => 'btn btn-primary' %>
+      		</div>
+			<% end %>
+    	</div><!-- /.modal-content -->
+  	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

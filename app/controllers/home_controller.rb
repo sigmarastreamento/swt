@@ -4,5 +4,7 @@ class HomeController < ApplicationController
 
 	def index
 		#authorize! :index, @user, :message => 'Nao autorizado somente administradores'
+		#debugger
+		#@users_device = UsersDevice.where(params[:user_id])
 	end
 end

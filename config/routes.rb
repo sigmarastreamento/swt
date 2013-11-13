@@ -7,6 +7,7 @@ Swt::Application.routes.draw do
   	resources :positions
 
   	resources :devices
+	#get 'devices/novo', to: 'devices#new'
 
 	resources :application_settings
 

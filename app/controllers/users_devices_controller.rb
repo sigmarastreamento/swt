@@ -20,6 +20,7 @@ class UsersDevicesController < ApplicationController
   # GET /users_devices/new
   def new
     @users_device = UsersDevice.new
+	#render template: 'users_devices/new.js.erb'
   end
 
   # GET /users_devices/1/edit

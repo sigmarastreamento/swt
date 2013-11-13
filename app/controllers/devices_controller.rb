@@ -11,7 +11,7 @@ class DevicesController < ApplicationController
 		  format.json { render json: @devices.to_json(root: false) }
 	  end
   end
-
+	
   # GET /devices/1
   # GET /devices/1.json
   def show

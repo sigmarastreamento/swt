@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap.min
+//= require OpenLayers
+//= require OpenStreetMap
+//= require angular.min
+//= require mapController
