@@ -25,6 +25,7 @@ class DevicesController < ApplicationController
   # GET /devices/new
   def new
     @device = Device.new
+    @devices = Device.all
   end
 
   # GET /devices/1/edit

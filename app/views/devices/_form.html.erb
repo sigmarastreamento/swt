@@ -24,9 +24,46 @@
 					<%= f.input :latestPosition_id %>
 			</div>
 			<div class="modal-footer">
-				<%= f.submit "submit", :class => 'btn btn-primary' %>
+				<%= f.submit "submit", :class => 'btn btn-primary', :remote => true %>
       		</div>
 			<% end %>
+			
+			
+			
+			
+			
+<h1>Listing devices</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unique Id</th>
+      <th>Last Position Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @devices.each do |device| %>
+      <tr>
+		  <td><%= device.name %></td>
+		  <td><%= device.uniqueId %></td>
+		  <td><%= device.latestPosition_id %></td>		  
+        <td><%= link_to 'Show', device %></td>
+        <td><%= link_to 'Edit', edit_device_path(device), :remote => true %></td>
+        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
     	</div><!-- /.modal-content -->
   	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

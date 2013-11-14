@@ -11,7 +11,7 @@ Swt::Application.routes.draw do
 
 	resources :application_settings
 
-	devise_for :users, :controllers => { :registrations => 'access/registrations' }
+	devise_for :users #, :controllers => { :registrations => 'access/registrations' }
 	resources :users	
 	root :to => 'home#index'	
 	
