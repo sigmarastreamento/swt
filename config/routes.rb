@@ -11,7 +11,33 @@ Swt::Application.routes.draw do
 
 	resources :application_settings
 
-	devise_for :users #, :controllers => { :registrations => 'access/registrations' }
+	devise_for :users, :controllers => {:registration => "registrations"}
+	
+	
+	
+#	devise_for :users, :skip => [ :session, :registrations, :passwords ] do
+
+		# devise/sessions
+#		get 'entrar' => 'devise/sessions#new', :as => :new_usuario_session
+#		post 'entrar' => 'devise/sessions#create', :as => :usuario_session
+#		delete 'sair' => 'devise/sessions#destroy', :as => :destroy_usuario_session
+	
+		# devise/registrations
+#		get 'cadastro' => 'devise/registrations#new', :as => :new_usuario_registration
+#		post 'cadastro' => 'devise/registrations#create', :as => :usuario_registration
+#		get 'cadastro/cancelar' => 'devise/registrations#cancel', :as => :cancel_usuario_registration
+#		get 'cadastro/alterar' => 'devise/registrations#edit', :as => :edit_usuario_registration
+#		put 'cadastro' => 'devise/registrations#update'
+#		delete 'cadastro/cancelar' => 'devise/registrations#destroy'
+	
+		# devise/passwords
+#		post 'senha' => 'devise/passwords#create', :as => :usuario_password
+#		get 'senha/nova' => 'devise/passwords#new', :as => :new_usuario_password
+#		get 'senha/alterar' => 'devise/passwords#edit', :as => :edit_usuario_password
+#		put 'senha' => 'devise/passwords#update'
+
+#	end
+	
 	resources :users	
 	root :to => 'home#index'	
 	
