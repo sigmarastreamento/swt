@@ -1,4 +1,5 @@
 class Position < ActiveRecord::Base
+	has_one :device
 	self.table_name = "positions"
 	self.primary_key = "id"
 	
