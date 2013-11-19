@@ -38,6 +38,8 @@ Swt::Application.routes.draw do
 
 #	end
 	
+    get 'device_by_user' => 'home#device_by_user'
+    
 	resources :users	
 	root :to => 'home#index'	
 	

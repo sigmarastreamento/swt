@@ -5,6 +5,7 @@ function MapController($scope, $http) {
 	$scope.mapId = "map";
 	$scope.osm = "OpenStreetMap";
 	$scope.layerMapa = null;
+    $scope.device_by_user = [];
 	
 	/* -- dados para o mapa -- */
 	$scope.layerPosition = null;
@@ -43,11 +44,17 @@ function MapController($scope, $http) {
 	$scope.carroLayer.addFeatures([
 		new OpenLayers.Feature.Vector($scope.locations, {tooltip: 'OpenLayers'})
 	]);
-	
-	
-	
-	$scope.clickSimao = function(){
+    
+	$scope.setGeometryPoint = function(){
 		return new OpenLayers.Geometry.Point(-3.76151, -38.54154666666667).transform('EPSG:4326');
 	}
-	
+    
+    
+    /* get device by user */
+    $http.get('http://localhost:3000/device_by_user.json').success(function(data) {
+        $scope.device_by_user = data;
+        for (var i=0; i<data.length; i++){
+            console.log([i]);
+        }
+    });
 }
