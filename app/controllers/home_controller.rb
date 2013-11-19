@@ -3,8 +3,11 @@ class HomeController < ApplicationController
 	#load_and_authorize_resource
 
 	def index
-		#authorize! :index, @user, :message => 'Nao autorizado somente administradores'
-		#debugger
-		#@users_device = UsersDevice.where(params[:user_id])
+        @teste
+        @users = User.find(params[@teste])
+	    respond_to do |format|
+            format.html # show.html.erb
+            format.json { render json: @users.last_positions.to_json(root: false) }
+        end            
 	end
 end
