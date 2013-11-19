@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   def last_positions
       sql = "select users_devices.users_id as 'id', 
                 devices.uniqueid as 'imei',
-                users.email as 'email', positions.altitude as 'altitude', 
+                users.email as 'email', 
+                positions.altitude as 'altitude', 
                 positions.latitude as 'latitude', 
                 positions.longitude as 'longitude'  
              from   users_devices, 
