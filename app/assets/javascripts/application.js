@@ -13,8 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap.min
-//= require OpenLayers
-//= require OpenStreetMap
-//= require angular.min
-//= require mapController
+
+//= require lib/bootstrap.min
+//= require lib/OpenLayers
+//= require lib/OpenStreetMap
+//= require lib/knockout-3.0.0
+//= require js/swtImge
+//= require js/UtilMap
+//= require js/SWTServer
+//= require js/MapViewModel
+
+//require angular.min
+//require mapController
