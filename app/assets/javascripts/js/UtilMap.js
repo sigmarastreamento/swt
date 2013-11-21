@@ -16,7 +16,7 @@ var UtilMap = {
 	},
     
     createMarkerV : function(v, map){
-        var size = new OpenLayers.Size(20, 20);
+        var size = new OpenLayers.Size(29, 29);
         var offset = new OpenLayers.Pixel(-((size.w/2)-1), -(size.h/2));
 		var icon = new OpenLayers.Icon(SWTImages.sportcar(), size, offset);
 		var marker = new OpenLayers.Marker(this.convertToLongLat(v, self.map), icon);

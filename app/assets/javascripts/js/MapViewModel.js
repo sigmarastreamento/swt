@@ -34,7 +34,7 @@ var MapViewModel = function(id, map) {
             var v = data[i];
             marker_v = UtilMap.createMarkerV(v, self.map);
             layer.addMarker(marker_v);
-            //self.map.panTo(v.lonlat);
+            self.map.panTo(marker_v.lonlat);
         }
     };
     
