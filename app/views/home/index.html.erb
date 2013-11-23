@@ -19,7 +19,26 @@
 					<li><%= link_to t(:label_edit_user_settings), edit_user_registration_path, :remote => true %></li>
               	</ul>
               </li>
-			<li><%= link_to t(:label_logout), destroy_session_path(:user), :method => :delete %></li>
+              <li class="dropdown">
+              	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t(:label_area_admin) %><b class="caret"></b></a>
+              	<ul class="dropdown-menu">                    
+                    <% if user_signed_in? %>
+                    <li>
+                        <%= link_to(t(:label_edit_account), edit_user_registration_path) %>
+                    </li>
+                        <% if current_user.admin? %>
+                    <li>
+                            <%= link_to(t(:label_admin_area), users_path, :remote => true) %>
+                    </li>
+                    <% end %>
+                    <% else %>
+                    <li>
+                        <li><%= link_to 'New User', new_user_registration_path, :remote => true %></li>
+                    </li>
+                    <% end %>
+              	</ul>
+              </li>
+              <li><%= link_to t(:label_logout), destroy_session_path(:user), :method => :delete %></li>
 			<li><a href="#"><%= current_user.email %></a></li>
           </ul>
         </div><!--/.nav-collapse -->
