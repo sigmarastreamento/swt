@@ -1,14 +1,14 @@
 <div class="container form-signin">
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => 'form-signin') do |f| %>
-        <h2 class='form-signin-heading'>Please sign in</h2>
-		<%= f.email_field :email, :class => 'form-control', :autofocus => true, :placeholder => "Email address" %>
-		<%= f.password_field :password, :class => 'form-control', :placeholder => "Password" %>	
+        <h2 class='form-signin-heading'><%= t(:label_login) %></h2>
+		<%= f.email_field :email, :class => 'form-control', :autofocus => true, :placeholder => t(:label_email_address) %>
+		<%= f.password_field :password, :class => 'form-control', :placeholder => t(:label_password) %>	
 		<% if devise_mapping.rememberable? -%>
 		<label class="checkbox">
-				<%= f.check_box :remember_me, :type => 'checkbox', :class => 'checkbox' %> Remember me
+				<%= f.check_box :remember_me, :type => 'checkbox', :class => 'checkbox' %> <%= t(:label_remember_me) %>
         </label>
 		<% end -%>
-		<%= f.submit "Sign in", :class => 'btn btn-lg btn-primary btn-block' %>
+		<%= f.submit t(:button_sing_in), :class => 'btn btn-lg btn-primary btn-block' %>
 	<% end %>
 	<%= render "devise/shared/links" %>
     </div>

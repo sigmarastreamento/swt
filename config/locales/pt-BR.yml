@@ -20,11 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  #General messages
   hello: "Hello World."
+
+  #User authentication
   label_login: "Logar-se no Sistema"
   label_logout: "Sair do Sistema"
+  label_password: "Senha"
+  label_remember_me: "Permanecer conectado."
   label_edit_account: "Editar Dados"
   label_admin_area: "Administrador"
   label_sing_up: "Cadastrar-se"
   label_my_settings: "Minhas Configurações"
   label_edit_user_settings: "Atualizar Minhas Configurações"
+  label_email_address: "Endereço de e-mail"
+  button_sing_in: "Logar-se no Sistemaa."
