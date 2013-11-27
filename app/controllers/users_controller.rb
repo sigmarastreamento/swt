@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    #before_filter :authenticate_user!
+    before_filter :authenticate_user!
     load_and_authorize_resource
 	
 	# GET /users
@@ -14,12 +14,15 @@ class UsersController < ApplicationController
           format.json { render json: @users.to_json(root: false) }
       end
     end
+    # GET /positions/new
+    def new
+        @user = User.new
+    end
   
     def show
 	  @user = User.find(params[:id])
     end
 	
-    def destroy
-	  
+    def destroy	  
     end
 end
