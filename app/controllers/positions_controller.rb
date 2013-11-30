@@ -1,6 +1,7 @@
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
+	before_filter :authenticate_user!
 
   # GET /positions
   # GET /positions.json

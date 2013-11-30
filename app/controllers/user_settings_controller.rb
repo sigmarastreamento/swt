@@ -1,6 +1,7 @@
 class UserSettingsController < ApplicationController
   before_action :set_user_setting, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
+	before_filter :authenticate_user!
   # GET /user_settings
   # GET /user_settings.json
   def index
