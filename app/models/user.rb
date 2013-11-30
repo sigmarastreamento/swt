@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	
   has_many :devices
   belongs_to :user_setting
   has_many :users_device

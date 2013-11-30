@@ -1,0 +1,2 @@
+module CrudUserHelper
+end
