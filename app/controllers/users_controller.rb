@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     end
     
     def new
-			debugger
 			@user = User.new
     end
     
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
     
 def create
     @user = User.new(params[:user])
-		debugger
+	
     if @user.save
       flash[:notice] = "#{ @user.email } created."
       redirect_to root_path, :notice => 'Cadastro criado com sucesso!'
@@ -46,11 +45,9 @@ def create
     
 
       def destroy
+				debugger
         @user.destroy
-        respond_to do |format|
-          format.html { redirect_to user_url }
-          format.json { head :no_content }
-        end
+				redirect_to root_path
       end
     
       private

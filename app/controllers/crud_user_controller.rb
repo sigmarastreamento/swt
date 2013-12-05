@@ -10,6 +10,7 @@ class CrudUserController < ApplicationController
 	end
 	
 	def new
+		index
 		@user = User.new
 	end
 	
