@@ -5,7 +5,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Edit <%= resource_name.to_s.humanize %></h4>
+        <h4 class="modal-title" id="myModalLabel"><%= t(:label_user_settings) %></h4>
       </div>
       <div class="modal-body">
 		  <%= devise_error_messages! %>
@@ -13,20 +13,20 @@
 		  <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
 		
 		  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-			<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+			<div><%= t(:label_message_email) %><%= resource.unconfirmed_email %></div>
 		  <% end %>
 		
-		  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+		  <div><%= f.label t(:password) %> <i><%= t(:label_message_modify_password) %></i><br />
 		  <%= f.password_field :password, :autocomplete => "off", :class => "form-control" %></div>
 		
-		  <div><%= f.label :password_confirmation %><br />
+		  <div><%= f.label t(:password_confirmation) %><br />
 		  <%= f.password_field :password_confirmation, :class => "form-control" %></div>
 		
-		  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+		  <div><%= f.label t(:current_password) %> <i><%= t(:label_message_confirmation_password) %></i><br />
 		  <%= f.password_field :current_password, :class => "form-control" %></div>		  
       </div>
       <div class="modal-footer">
-		  <%= f.submit "Update", :class => "btn btn-primary", :remote => true %>
+		  <%= f.submit t(:label_update), :class => "btn btn-primary", :remote => true %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

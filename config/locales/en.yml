@@ -27,3 +27,14 @@ en:
   label_admin_area: "Administrator"
   label_sing_up: "Sing UP"
   label_my_settings: "My Settings"
+  
+  
+  label_user_settings: "Configurações de Acesso"
+  label_update: "Atualizar"
+  current_password: "Senha atual"
+  password: "Senha"
+  password_confirmation: "Confirmar senha"
+  label_message_confirmation_password: "(Precisamos de sua senha atual para confirmar as alterações)"
+  label_message_modify_password: "(deixe em branco se você não quiser mudá-lo)"
+  label_message_email: "Atualmente estamos esperando a confirmação"
+  label_admin: "Administrador"

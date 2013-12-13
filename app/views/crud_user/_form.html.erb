@@ -16,9 +16,8 @@
 						<tbody>
 							<% @users.each do |user| %>
 							<tr>
-								<td><%= user.email %></td>		  		  
-									<td><%= link_to 'Edit', edit_user_registration_path(user) %></td>
-									<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								<td><%= user.email %></td>
+									<td><%= link_to t(:label_destroy), user, :class => 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %></td>
 								</tr>
 							<% end %>
 						</tbody>
@@ -36,15 +35,15 @@
                   <% end %>
                 <div><%= f.label :email %><br />
                 <%= f.email_field :email, :autofocus => true, :class => "form-control" %></div>
-                <div><%= f.label :password %><br />
+                <div><%= f.label t(:password) %><br />
                 <%= f.password_field :password, :class => "form-control" %></div>
-                <div><%= f.label :password_confirmation %><br />
+                <div><%= f.label t(:password_confirmation) %><br />
                 <%= f.password_field :password_confirmation, :class => "form-control" %></div>
-                <div><%= f.label :admin %><br />
+                <div><%= f.label t(:label_admin) %><br />
                 <%= f.check_box :admin %></div>
 			</div>
 			<div class="modal-footer">
-				<%= f.submit "submit", :class => 'btn btn-primary', :remote => true %>
+				<%= f.submit t(:label_salvar), :class => 'btn btn-primary', :remote => true %>
       		</div>
 		</div><!-- /.modal-content -->
   	</div><!-- /.modal-dialog -->

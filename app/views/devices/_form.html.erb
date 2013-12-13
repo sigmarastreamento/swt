@@ -5,7 +5,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title" id="myModalLabel">Cadastro de Device</h4>
+				<h4 class="modal-title" id="myModalLabel"><%= t(:label_title_device)%></h4>
 			</div>
 			<div class="modal-body">
 
@@ -20,12 +20,23 @@
 					  </ul>
 					</div>
 				  <% end %>
-				<div><%= f.input :name, :class => "form-control" %></div>
-				<div><%= f.input :uniqueId, :class => "form-control" %></div>
-				<div><%= f.input :latestPosition_id, :class => "form-control" %></div>
+				<div>
+					<%= f.label t(:label_name) %>
+					<%= f.input :name, :class => "form-control" %>
+				</div>
+				
+				<div>
+					<%= f.label t(:label_uniqueId) %>
+					<%= f.input :uniqueId, :class => "form-control" %>
+				</div>
+				
+				<div>
+					<%= f.label t(:label_latestPosition_id) %>
+					<%= f.input :latestPosition_id, :class => "form-control" %>
+				</div>
 			</div>
 			<div class="modal-footer">
-				<%= f.submit "submit", :class => 'btn btn-primary', :remote => true %>
+				<%= f.submit t(:label_salvar), :class => 'btn btn-primary', :remote => true %>
 			</div>
 		</div><!-- /.modal-content -->
   	</div><!-- /.modal-dialog -->
