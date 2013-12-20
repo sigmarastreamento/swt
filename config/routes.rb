@@ -17,7 +17,7 @@ Swt::Application.routes.draw do
 
 	resources :application_settings
 
-	devise_for :users#, :controllers => {:registration => "registrations"}	
+	#devise_for :users#, :controllers => {:registration => "registrations"}	
 	
 	get 'device_by_user' => 'home#device_by_user'
     
