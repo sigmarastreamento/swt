@@ -1,11 +1,11 @@
 Swt::Application.routes.draw do
 	
-  #get "crud_user/index"
-  #get "crud_user/show"
-  #get "crud_user/new"
-  #get "crud_user/create"
-  #get "crud_user/update"
-  #get "crud_user/destroy"
+  get "crud_user/index"
+  get "crud_user/show"
+  get "crud_user/new"
+  get "crud_user/create"
+  get "crud_user/update"
+  get "crud_user/destroy"
 	
 	resources :users_devices
 
@@ -19,9 +19,9 @@ Swt::Application.routes.draw do
 
 	devise_for :users#, :controllers => {:registration => "registrations"}	
 	
-	#get 'device_by_user' => 'home#device_by_user'
+	get 'device_by_user' => 'home#device_by_user'
     
-	#resources :users	
+	resources :users	
 	root :to => 'home#index'	
 	
 	
